@@ -1,0 +1,67 @@
+% !TeX root = exam.tex
+% The exam itself, shared by exam.tex (to print) and exam-solutions.tex.
+\input{preamble}
+
+\newcommand{\examtitle}{Midterm Exam}
+
+% Each exercise starts on a new page. Parts that should start on a page of their own in the
+% printed exam call \exambreak (it does nothing in the solutions, which simply run on).
+\ifprintanswers\else\newcommand{\exambreak}{\newpage}\fi
+
+% Box heights: the exercises give them as \boxheight{9} (9 cm by default, see the exercise files).
+% With the next line they are shares of a page's free space instead, so the boxes fill their
+% pages (two boxes of \boxheight{1} on a page get half of it each). This needs every page to
+% end in \clearpage or \exambreak. Comment it out for fixed heights in cm.
+\newcommand\boxheight[1]{\stretch{#1}}
+
+\runningheader{\coursename}{}{\thepage}
+\runningfooter{}{}{}
+
+\begin{document}
+
+\vspace{5mm}
+\makebox[0.75\textwidth]{Name:\enspace\hrulefill}
+
+\vspace{5mm}
+\makebox[0.75\textwidth]{Student ID:\enspace\hrulefill}
+
+\vfill
+
+\begin{center}
+  {\Large \examtitle}\\ \bigskip
+  {\large \coursename}\\ \bigskip
+  {\large \term}
+
+  \vfill
+
+  \begin{itemize}
+    \item This exam consists of \numquestions\ problems, worth \numpoints\ points in total.
+    \item Write your answers into the provided boxes.
+    \item If you run out of space, use the \emph{Extra space} at the end of this exam.
+    \item The exam takes 90 minutes. It is closed-book.
+    \item You may use a pen, a ruler and a non-graphical calculator.
+  \end{itemize}
+\end{center}
+
+\vfill
+
+\begin{center}
+  \gradetable[v][questions]
+\end{center}
+
+\clearpage
+
+\begin{questions}
+\input{centrality/simple-complete}
+\clearpage
+\input{connectedness/sci2}
+\clearpage
+
+\textbf{\emph{Extra space}}
+
+\begin{solutionorbox}[\boxheight{1}]
+\end{solutionorbox}
+
+\end{questions}
+
+\end{document}

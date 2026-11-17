@@ -1,0 +1,25 @@
+% Shared by the exam and the collection: packages, macros, how solutions look.
+% Course details: change them here once.
+\newcommand{\coursename}{Course Name}
+\newcommand{\lecturer}{Lecturer Name}
+\newcommand{\institution}{University of Vienna}
+\newcommand{\term}{Winter Term 2026/2027}
+
+% question title in bold, points in brackets: "1. Title (10)"
+\makeatletter
+\qformat{\thequestion. \bfseries\thequestiontitle\if@placepoints~(\thepoints)\else\fi\hfill}
+\makeatother
+
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+
+% solutions on a light blue background
+\shadedsolutions
+\definecolor{SolutionColor}{rgb}{0.9,0.95,1}
+\renewcommand{\solutiontitle}{\noindent\emph{Solution}\par\nopagebreak\noindent}

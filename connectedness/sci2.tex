@@ -1,0 +1,57 @@
+\providecommand\boxheight[1]{#1cm} % a box's height in cm, unless the exam redefines it
+\titledquestion{Social Connectedness}
+Let $X$ be the set of US counties and $x \in X$. Then the set of counties whose distance is less than $r$ can be denoted by
+
+\begin{equation*}
+    B_r(x) = \{ x' \in X : d(x, x') < r \}
+\end{equation*}
+
+The measure of network concentration is defined as
+
+\begin{equation*}
+    C_x^r = \frac{
+    \sum_{y \in B_r(x)} \#_{x,y} }{\sum_{z \in X} \#_{x,z}}
+\end{equation*}
+where $\#_{x,y}$ is the number of friendships between counties $x$ and $y \in X$.
+
+\begin{parts}
+    \part[2] Briefly interpret the measure of network concentration.
+
+    \begin{solutionorbox}[\boxheight{4.5}]
+      $C_x^r$ is the fraction of county $x$'s friendships that are with people living within distance $r$ of $x$ (the share of $x$'s friends who live nearby).
+    \end{solutionorbox}
+
+    \part[2] State the definition of the Social Connectedness Index $\text{sci}_{x,y}$ for $x,y \in X$.
+
+    \begin{solutionorbox}[\boxheight{7}]
+      With $\#_x$ the number of Facebook users in county $x$,
+      \begin{equation*}
+        \text{sci}_{x,y} = \frac{\#_{x,y}}{\#_x \cdot \#_y}.
+      \end{equation*}
+    \end{solutionorbox}
+
+    \ifdefined\exambreak\exambreak\fi % an exam may start this part on a new page (its box does not fit under the part before)
+    \part[4] Rewrite $C_x^r$ in terms of the Social Connectedness Index and the population $\text{pop}_{x}$ for $x \in X$.
+
+    \begin{solutionorbox}[\boxheight{10.5}]
+      By (b), $\#_{x,y} = \text{sci}_{x,y} \, \#_x \#_y$. The factor $\#_x$ cancels:
+      \begin{equation*}
+        C_x^r = \frac{\sum_{y \in B_r(x)} \text{sci}_{x,y} \, \#_x \#_y}{\sum_{z \in X} \text{sci}_{x,z} \, \#_x \#_z}
+              = \frac{\sum_{y \in B_r(x)} \text{sci}_{x,y} \, \#_y}{\sum_{z \in X} \text{sci}_{x,z} \, \#_z}
+              \approx \frac{\sum_{y \in B_r(x)} \text{sci}_{x,y} \, \text{pop}_y}{\sum_{z \in X} \text{sci}_{x,z} \, \text{pop}_z},
+      \end{equation*}
+      where the last step assumes that the same fraction of each county's population uses Facebook, $\#_y = \kappa \, \text{pop}_y$ ($\kappa$ cancels).
+    \end{solutionorbox}
+
+    \part[2] Briefly describe one strength and one weakness of the Facebook Social Connectedness Index.
+
+    \begin{solutionorbox}[\boxheight{7}]
+      e.g.\
+      \begin{itemize}
+        \item (+): available on a very disaggregated level, for most regions of the world
+        \item (-): not available for China, not reliable for Russia
+        \item (-): Facebook friendships are an imperfect measure of actual friendships
+      \end{itemize}
+    \end{solutionorbox}
+\end{parts}
+

@@ -1,0 +1,46 @@
+% !TeX root = collection.tex
+% The collection, shared by collection.tex and collection-solutions.tex.
+%
+% A root file may define \collectiontitle and \collectionsections before \input{collection-body}
+% to build a subset, e.g. a collection-midterm.tex with
+%   \newcommand{\collectiontitle}{Collected Exercises\\ for the Midterm Exam}
+%   \newcommand{\collectionsections}{\clearpage\input{collection-sections/centrality}}
+% Otherwise all sections below are included.
+\input{preamble}
+
+% Without solutions, the collection shows no empty answer boxes: solutionorbox prints nothing.
+% (The exam does not load this file, so it keeps its boxes.)
+\ifprintanswers\else
+  \renewenvironment{solutionorbox}[1][]{\begin{solution}}{\end{solution}}
+\fi
+
+\runningheader{{\scshape\coursename}}{}{\thepage}
+\runningfooter{}{}{\copyright~\lecturer, \the\year}
+
+\providecommand{\collectiontitle}{Collected Exercises}
+\providecommand{\collectionsections}{%
+  \clearpage\input{collection-sections/centrality}
+  \clearpage\input{collection-sections/connectedness}
+}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{0.25\textheight}
+  {\Large\scshape \coursename\par}
+  \vspace{1em}
+  {\huge\bfseries \collectiontitle\ifprintanswers\\ with Solutions\fi\par}
+  \vspace{1.5em}
+  {\normalsize \lecturer\\ \institution\par}
+  \vspace{2em}
+  {\normalsize \term\par}
+  \vfill
+  {\small Last updated on \today\par}
+\end{titlepage}
+
+\tableofcontents
+
+\collectionsections
+
+\end{document}
