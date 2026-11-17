@@ -1,16 +1,19 @@
 # Exam template (LaTeX `exam` class)
 
-One set of exercise files, four PDFs:
+One set of exercise files, four PDFs (click to see the latest build):
 
-| File                       | What it is                                      |
-|----------------------------|-------------------------------------------------|
-| `exam.tex`                 | the exam to print: empty answer boxes           |
-| `exam-solutions.tex`       | the same exam with solutions                    |
-| `collection.tex`           | all exercises for students, no boxes            |
-| `collection-solutions.tex` | all exercises with solutions                    |
+| File                       | What it is                                                  |
+|----------------------------|-------------------------------------------------------------|
+| `exam.tex`                 | [the exam to print](https://github.com/greimel/exam-template/releases/latest/download/exam.pdf): empty answer boxes        |
+| `exam-solutions.tex`       | [the same exam with solutions](https://github.com/greimel/exam-template/releases/latest/download/exam-solutions.pdf)       |
+| `collection.tex`           | [all exercises for students](https://github.com/greimel/exam-template/releases/latest/download/collection.pdf), no boxes   |
+| `collection-solutions.tex` | [all exercises with solutions](https://github.com/greimel/exam-template/releases/latest/download/collection-solutions.pdf) |
 
 Build everything with `latexmk` (LuaLaTeX, set in `.latexmkrc`), or one file with
 `latexmk exam.tex`.
+
+GitHub Actions (`.github/workflows/build.yml`) builds the four PDFs on every push; a tag
+`v*` (`git tag v1.1 && git push --tags`) publishes them as a release.
 
 ## How it works
 

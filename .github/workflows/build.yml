@@ -1,0 +1,35 @@
+# Builds the four PDFs on every push. A tag v* (git tag v1.1 && git push --tags) also makes a
+# GitHub release with the PDFs as assets.
+name: build PDFs
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            exam.tex
+            exam-solutions.tex
+            collection.tex
+            collection-solutions.tex
+          latexmk_use_lualatex: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PDFs
+          path: '*.pdf'
+      - if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: '*.pdf'
